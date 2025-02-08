@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM System</title>
+    <style>
+        body {
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .atm-container{
+            background-color: #ffffff;;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: auto;
+        }
+        label{
+            margin: 10px;
+        }
+        button{
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            margin-top: 10px;
+        }
+        button:hover{
+            background-color: #218838;
+        }
+        p{
+            margin-top: 15px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="atm-container">
+        <h1>ATM Withdrawal System</h1>
+        <label for="balance">Balance:</label>
+        <input type="number" id="balance" value="5000">
+        <label for="amount">Withdrawal Amount:</label>
+        <input type="number" id="amount">
+        <label for="pin">PIN:</label>
+        <input type="password" id="pin">
+        <label for="enteredPin">Confirm PIN:</label>
+        <input type="password" id="enteredPin">
+        <button onclick="executeWithdrawal()">Withdraw</button>
+        <p id="result"></p>
+    </div>  
+    <script>
+        function atmWithdrawal(balance, amount, pin, enteredPin) {
+    if (enteredPin !== pin) {
+        return "Incorrect PIN";
+    }
+
+    if (amount > balance) {
+        return "Insufficient Funds";
+    }
+
+    if (amount % 100 !== 0) {
+        return "Please enter the amount in multiples of 100";
+    }
+
+    balance -= amount;
+    return `Withdrawal successful. Your remaining balance is ₹${balance}`;
+}
+
+function executeWithdrawal() {
+    let balance = parseFloat(document.getElementById("balance").value);
+    let amount = parseFloat(document.getElementById("amount").value);
+    let pin = document.getElementById("pin").value;
+    let enteredPin = document.getElementById("enteredPin").value;
+
+    let result = atmWithdrawal(balance, amount, pin, enteredPin);
+    document.getElementById("result").innerText = result;
+}
+
+    </script>
+</body>
+</html>
