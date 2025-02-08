@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Filter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Job Application Filter</h1>
+        <label for="age">Age:</label>
+        <input type="number" id="age" placeholder="Enter your age">
+        <label for="experience">Experience (years):</label>
+        <input type="number" id="experience" placeholder="Enter your experience">
+        <label for="qualification">Qualification:</label>
+        <select id="qualification">
+            <option value="Bachelor's Degree">Bachelor's Degree</option>
+            <option value="Master's Degree">Master's Degree</option>
+            <option value="PhD">PhD</option>
+        </select>
+        <button onclick="displayEligibility()">Check Eligibility</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function isEligibleForJob(age, experience, qualification) {
+            if (age < 21 || age > 55) {
+                return false;
+            }
+            if (experience < 2) {
+                return false;
+            }
+            if (qualification !== "Bachelor's Degree" && qualification !== "Master's Degree" && qualification !== "PhD") {
+                return false;
+            }
+            return true;
+        }
+
+        function displayEligibility() {
+            let age = parseInt(document.getElementById("age").value);
+            let experience = parseInt(document.getElementById("experience").value);
+            let qualification = document.getElementById("qualification").value;
+            let isEligible = isEligibleForJob(age, experience, qualification);
+            let resultText = isEligible ? "Eligible for the job" : "Not eligible for the job";
+            document.getElementById("result").innerText = resultText;
+        }
+    </script>
+</body>
+</html>

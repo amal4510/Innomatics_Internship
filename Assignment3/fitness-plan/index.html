@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Membership Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fitness Membership Plan</h1>
+        <label for="planType">Plan Type:</label>
+        <select id="planType">
+            <option value="Basic">Basic</option>
+            <option value="Premium">Premium</option>
+            <option value="VIP">VIP</option>
+        </select>
+        <label for="wantsTrainer">Want Personal Trainer?</label>
+        <select id="wantsTrainer">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <label for="wantsDietPlan">Want Diet Plan?</label>
+        <select id="wantsDietPlan">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <button onclick="displaySuggestedPlan()">Suggest Plan</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function choosePlan(planType, wantsTrainer, wantsDietPlan) {
+            if (wantsDietPlan === "yes") {
+                return "VIP";
+            }
+            if (wantsTrainer === "yes") {
+                return "Premium";
+            }
+            return "Basic";
+        }
+
+        function displaySuggestedPlan() {
+            let planType = document.getElementById("planType").value;
+            let wantsTrainer = document.getElementById("wantsTrainer").value;
+            let wantsDietPlan = document.getElementById("wantsDietPlan").value;
+            let suggestedPlan = choosePlan(planType, wantsTrainer, wantsDietPlan);
+            document.getElementById("result").innerText = `Suggested Plan: ${suggestedPlan}`;
+        }
+    </script>
+</body>
+</html>

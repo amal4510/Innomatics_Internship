@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Traffic Light System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Traffic Light System</h1>
+        <label for="density">Traffic Density:</label>
+        <select id="density">
+            <option value="Heavy Traffic">Heavy Traffic</option>
+            <option value="Moderate Traffic">Moderate Traffic</option>
+            <option value="Light Traffic">Light Traffic</option>
+        </select>
+        <button onclick="displayGreenDuration()">Show Green Duration</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function trafficLightControl(density) {
+            let greenDuration;
+
+            switch (density) {
+                case "Heavy Traffic":
+                    greenDuration = 60;
+                    break;
+                case "Moderate Traffic":
+                    greenDuration = 40;
+                    break;
+                case "Light Traffic":
+                    greenDuration = 20;
+                    break;
+                default:
+                    greenDuration = 0; // Default case for unexpected values
+                    break;
+            }
+
+            return greenDuration;
+        }
+
+        function displayGreenDuration() {
+            let density = document.getElementById("density").value;
+            let duration = trafficLightControl(density);
+            document.getElementById("result").innerText = `Green light duration: ${duration} seconds`;
+        }
+    </script>
+</body>
+</html>

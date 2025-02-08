@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grading System with Extra Credit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Grading System with Extra Credit</h1>
+        <label for="marks">Marks:</label>
+        <input type="number" id="marks" placeholder="Enter marks">
+        <label for="attendance">Attendance (%):</label>
+        <input type="number" id="attendance" placeholder="Enter attendance percentage">
+        <button onclick="calculateAndDisplayGrade()">Calculate Grade</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function calculateGrade(marks, attendance) {
+            // Add extra credit if attendance is above 90%
+            if (attendance > 90) {
+                marks += 5;
+            }
+
+            // Assign grades based on marks
+            let grade;
+            if (marks >= 90) {
+                grade = "A";
+            } else if (marks >= 80) {
+                grade = "B";
+            } else if (marks >= 70) {
+                grade = "C";
+            } else if (marks >= 60) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+
+            return grade;
+        }
+
+        function calculateAndDisplayGrade() {
+            let marks = parseFloat(document.getElementById("marks").value);
+            let attendance = parseFloat(document.getElementById("attendance").value);
+            let grade = calculateGrade(marks, attendance);
+            document.getElementById("result").innerText = `Final Grade: ${grade}`;
+        }
+    </script>
+</body>
+</html>

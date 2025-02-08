@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill Calculation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Electricity Bill Calculation</h1>
+        <label for="units">Units Consumed:</label>
+        <input type="number" id="units" placeholder="Enter units consumed">
+        <label for="timeOfDay">Time of Day (HH:MM):</label>
+        <input type="time" id="timeOfDay">
+        <button onclick="displayElectricityBill()">Calculate Bill</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function calculateElectricityBill(units, timeOfDay) {
+            let ratePerUnit;
+            const [hours, minutes] = timeOfDay.split(':').map(Number);
+            const isPeakHours = hours >= 20 || hours < 8;
+            const peakHourMultiplier = isPeakHours ? 1.10 : 1.00;
+
+            if (units <= 100) {
+                ratePerUnit = 5;
+            } else if (units <= 300) {
+                ratePerUnit = 4;
+            } else {
+                ratePerUnit = 3;
+            }
+
+            let totalBill = units * ratePerUnit * peakHourMultiplier;
+            return totalBill.toFixed(2);
+        }
+
+        function displayElectricityBill() {
+            let units = parseFloat(document.getElementById("units").value);
+            let timeOfDay = document.getElementById("timeOfDay").value;
+            let bill = calculateElectricityBill(units, timeOfDay);
+            document.getElementById("result").innerText = `Total Bill: $${bill}`;
+        }
+    </script>
+</body>
+</html>

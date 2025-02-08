@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Coupon Redemption</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>E-commerce Coupon Redemption</h1>
+        <label for="orderAmount">Order Amount ($):</label>
+        <input type="number" id="orderAmount" placeholder="Enter order amount">
+        <label for="couponCode">Coupon Code:</label>
+        <input type="text" id="couponCode" placeholder="Enter coupon code">
+        <button onclick="displayFinalPrice()">Apply Coupon</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function applyCoupon(orderAmount, couponCode) {
+            let finalPrice = orderAmount;
+            let discount = 0;
+            let shipping = 0;
+
+            // Apply coupon discounts
+            if (couponCode === "DISCOUNT10" && orderAmount > 500) {
+                discount = 0.10 * orderAmount;
+            } else if (couponCode === "FREESHIP" && orderAmount > 200) {
+                shipping = 0;
+            } else if (couponCode === "FREESHIP") {
+                shipping = 20; // Assuming a fixed shipping cost for example
+            }
+
+            // Calculate final price
+            finalPrice = orderAmount - discount + shipping;
+
+            return finalPrice.toFixed(2);
+        }
+
+        function displayFinalPrice() {
+            let orderAmount = parseFloat(document.getElementById("orderAmount").value);
+            let couponCode = document.getElementById("couponCode").value;
+            let price = applyCoupon(orderAmount, couponCode);
+            document.getElementById("result").innerText = `Final Price: $${price}`;
+        }
+    </script>
+</body>
+</html>
