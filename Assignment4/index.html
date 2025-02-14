@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1>Shopping Cart</h1>
+        <div class="nav-links">
+            <a href="#mobiles">Mobiles</a>
+            <a href="#laptops">Laptops</a>
+            <a href="#accessories">Accessories</a>
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            🛒 <span id="cart-count">0</span>
+        </div>
+    </nav>
+
+    <!-- Product Categories -->
+    <div class="container">
+        <h2>Products</h2>
+        
+        <div class="category" id="mobiles">
+            <h3>📱 Mobiles</h3>
+            <div class="products"></div>
+        </div>
+
+        <div class="category" id="laptops">
+            <h3>💻 Laptops</h3>
+            <div class="products"></div>
+        </div>
+
+        <div class="category" id="accessories">
+            <h3>🎧 Accessories</h3>
+            <div class="products"></div>
+        </div>
+    </div>
+
+    <!-- Cart Panel -->
+    <div class="cart" id="cart">
+        <button class="close-btn" onclick="toggleCart()">✖</button>
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <h3>Total: ₹<span id="total-price">0</span></h3>
+        <button class="empty-cart" onclick="clearCart()">Empty Cart</button>
+        <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
