@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >  Memory Match Game 🎮  </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🧠 Memory Match Game</h1>
+        <div class="categories">
+            <button class="category-btn" data-category="fruits">🍎 Fruits</button>
+            <button class="category-btn" data-category="emojis">😀 Emojis</button>
+            <button class="category-btn" data-category="animals">🐶 Animals</button>
+            <button class="category-btn" data-category="planets">🪐 Planets</button>
+        </div>
+        <div class="game-board"></div>
+        <div class="game-info">
+            <p id="winning-message"></p>
+            <p>Time Left: <span id="timer">30</span>s</p>
+            <p>Score: <span id="score">0</span></p>
+            <button id="reset-btn">🔄 Reset Game</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
