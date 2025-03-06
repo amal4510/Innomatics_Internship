@@ -1,0 +1,5 @@
+/* App.css */
+.section {
+  padding-top: 70px; /* Adjust this value based on the height of your navbar */
+  margin-top: -70px; /* Negative margin to offset the padding */
+}

@@ -1,0 +1,105 @@
+/* Project.css */
+.project-card {
+    background-color: #212529;
+    color: white;
+    border-radius: 15px;
+    padding: 15px; /* Reduced padding */
+    box-shadow: 0 5px 8px rgba(235, 231, 213, 0.6);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin: 10px;
+    flex: 1 1 200px; /* Fixed width */
+    height: 500px; /* Fixed height */
+    text-align: center; /* Center align content */
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 20px rgba(190, 174, 101, 0.8);
+  }
+  
+  .project-image {
+    max-width: 90%;
+    max-height: 75%; /* Reduced image size */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px; /* Reduced margin */
+  }
+  
+  .project-title {
+    font-family: cursive;
+    font-size: 18px; /* Reduced font size */
+    margin-bottom: 8px; /* Reduced margin */
+  }
+  
+  .project-description {
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 8px; /* Reduced margin */
+    font-size: 14px; /* Reduced font size */
+  }
+  
+  .project-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .project-link:hover {
+    color: #ffd000;
+    text-decoration: underline;
+  }
+  
+  .projects-section {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .projects-title {
+    color: white;
+    font-family: cursive;
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+  
+  .project-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .project-card {
+      flex: 1 1 calc(50% - 20px); /* Adjust width for tablets */
+      height: auto; /* Adjust height for tablets */
+      padding: 10px; /* Adjust padding for tablets */
+    }
+  
+    .project-title {
+      font-size: 16px; /* Adjust font size for tablets */
+    }
+  
+    .project-description {
+      font-size: 12px; /* Adjust font size for tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .project-card {
+      flex: 1 1 calc(100% - 20px); /* Full width for mobile devices */
+      height: auto; /* Adjust height for mobile devices */
+      padding: 10px; /* Adjust padding for mobile devices */
+    }
+  
+    .project-title {
+      font-size: 14px; /* Further adjust font size for mobile devices */
+    }
+  
+    .project-description {
+      font-size: 12px; /* Further adjust font size for mobile devices */
+    }
+  
+    .project-image {
+      max-width: 100%; /* Adjust image size for mobile devices */
+    }
+  }
+  

@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+    background-color: black;
+    color: #ffd000;
+  }
+  
+  .container {
+    height: auto;
+    width: 800px;
+    background-color: #212529;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    align-items: center;
+    margin: 15px auto;
+    transition: transform 0.2s, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .abt-text {
+    font-family: 'Lato', sans-serif;
+    color: white;
+    background: #212529;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .abt-text-title {
+    font-family: cursive;
+    font-size: 35px;
+    margin-top: 6px;
+  }
+  
+  .abt-text-title:hover {
+    transform: scale(1.05);
+    color: hsl(49, 100%, 50%);
+  }
+  
+  .abt-ptext {
+    font-size: 20px;
+    text-align: justify;
+  }
+  
+  hr {
+    color: #ffd000;
+    width: 65%;
+    height: 15px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .container {
+      width: 90%; /* Adjust width for smaller screens */
+      padding: 10px; /* Adjust padding for smaller screens */
+    }
+  
+    .abt-text-title {
+      font-size: 28px; /* Adjust font size for smaller screens */
+    }
+  
+    .abt-ptext {
+      font-size: 18px; /* Adjust font size for smaller screens */
+    }
+  
+    hr {
+      width: 80%; /* Adjust hr width for smaller screens */
+      height: 10px; /* Adjust hr height for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      width: 100%; /* Adjust width for mobile devices */
+      padding: 5px; /* Adjust padding for mobile devices */
+    }
+  
+    .abt-text-title {
+      font-size: 24px; /* Further adjust font size for mobile devices */
+    }
+  
+    .abt-ptext {
+      font-size: 16px; /* Further adjust font size for mobile devices */
+    }
+  
+    hr {
+      width: 90%; /* Adjust hr width for mobile devices */
+      height: 8px; /* Adjust hr height for mobile devices */
+    }
+  }
+  

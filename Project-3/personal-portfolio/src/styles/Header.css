@@ -1,0 +1,137 @@
+body {
+  background-color: black;
+  color: #ffd000;
+}
+
+.navbar {
+  position: sticky;
+  text-align: right;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure the navbar is above other content */
+  background-color: rgba(0, 0, 0, 0.8); /* Adjust the background color as needed */
+  transition: background-color 0.3s ease;
+}
+
+.navbar-blur {
+  backdrop-filter: blur(10px);
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  font-size: 25px;
+}
+
+img {
+  border-radius: 25px;
+  margin-right: 20px;
+}
+
+.hero-container {
+  width: 55%;  /* Adjust the width as needed */
+  max-width: 100%;  /* Ensure it doesn't exceed the screen width */
+  background-color: #212529;
+  color: white;
+  display: flex;
+  flex-direction: row;  /* Set direction to row */
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;  /* Center the container horizontally */
+  padding: 15px;  /* Added padding for better spacing */
+  transition: transform 0.2s, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 208, 0, 0.3);
+}
+
+.hero-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-text {
+  text-align: left;
+  font-family: cursive;
+}
+
+.web-developer {
+  margin-top: 15px;
+  font-style: italic; /* Customize the font style as needed */
+  font-size: 18px; /* Adjust the size as needed */
+  font-family: Arial, sans-serif; /* Choose your preferred font */
+}  
+
+.vertical-line {
+  border-left: 2px solid #ffd000;
+  height: 150px; /* Adjust the height as needed */
+  margin: 0 20px; /* Space around the vertical line */
+}
+
+.social-links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;  /* Align items to the left */
+  width: auto;
+  margin-left: 20px;
+  flex-direction: column; /* Stack icons and details vertically */
+}
+
+.social-links > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Space between items */
+}
+
+.social-links svg {
+  margin-right: 5px;
+  margin-top: -12px;
+  color: #ffd000;
+}
+
+@media (max-width: 992px) {
+  .hero-container {
+    width: 70%; /* Adjust for tablet size */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 20px; /* Adjust font size for tablet size */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;  /* Stack elements vertically on small screens */
+    align-items: center;
+    justify-content: center;
+    width: 90%; /* Adjust for mobile size */
+  }
+
+  .hero-text {
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 20px; /* Add space between elements */
+  }
+
+  .vertical-line {
+    display: none;  /* Hide vertical line on small screens */
+  }
+
+  .social-links {
+    flex-direction: column;
+    align-items: center;  /* Center items on small screens */
+    margin-left: 0;
+  }
+
+  .social-links > div {
+    margin-right: 0;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 18px; /* Adjust font size for mobile size */
+  }
+}
