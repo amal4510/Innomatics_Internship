@@ -1,2 +1,4 @@
-command="npm run build"
-publish="build"
+[build]
+command = "npm run build"
+publish = "dist"
+path = "C:\\Users\\Amal\\OneDrive\\Desktop\\Innomatics_Internship\\Project-3\\personal-portfolio"

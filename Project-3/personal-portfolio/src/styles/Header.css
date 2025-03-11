@@ -1,3 +1,5 @@
+/* header.css */
+
 body {
   background-color: black;
   color: #ffd000;
@@ -8,18 +10,24 @@ body {
   text-align: right;
   top: 0;
   width: 100%;
-  z-index: 1000; /* Ensure the navbar is above other content */
-  background-color: rgba(0, 0, 0, 0.8); /* Adjust the background color as needed */
-  transition: background-color 0.3s ease;
+  z-index: 9999; /* Bring the navbar to the forefront */
+  background-color: black !important; /* Ensure fully black background */
+  color: white;
+  box-sizing: border-box; /* Avoid layout issues */
+  transition: background-color 0.3s ease; /* Smooth background transition */
 }
 
 .navbar-blur {
   backdrop-filter: blur(10px);
+  opacity: 0.95;
 }
 
 .navbar-nav .nav-link {
-  color: white !important;
+  color: white !important; /* Ensure links are visible */
   font-size: 25px;
+}
+.navbar-nav .nav-link:hover {
+  color: #ffd000; /* Highlight color for links on hover */
 }
 
 img {
@@ -28,17 +36,17 @@ img {
 }
 
 .hero-container {
-  width: 55%;  /* Adjust the width as needed */
-  max-width: 100%;  /* Ensure it doesn't exceed the screen width */
+  width: 45%; /* Adjust the width as needed */
+  max-width: 100%; /* Ensure it doesn't exceed the screen width */
   background-color: #212529;
   color: white;
   display: flex;
-  flex-direction: row;  /* Set direction to row */
+  flex-direction: row; /* Set direction to row */
   border-radius: 20px;
   align-items: center;
   justify-content: center;
-  margin: 40px auto;  /* Center the container horizontally */
-  padding: 15px;  /* Added padding for better spacing */
+  margin: 40px auto; /* Center the container horizontally */
+  padding: 15px; /* Added padding for better spacing */
   transition: transform 0.2s, box-shadow 0.3s ease-in-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -61,30 +69,30 @@ img {
 
 .web-developer {
   margin-top: 15px;
-  font-style: italic; /* Customize the font style as needed */
-  font-size: 18px; /* Adjust the size as needed */
-  font-family: Arial, sans-serif; /* Choose your preferred font */
-}  
+  font-style: italic;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+}
 
 .vertical-line {
   border-left: 2px solid #ffd000;
-  height: 150px; /* Adjust the height as needed */
-  margin: 0 20px; /* Space around the vertical line */
+  height: 150px;
+  margin: 0 20px;
 }
 
 .social-links {
   margin-top: 10px;
   display: flex;
-  justify-content: flex-start;  /* Align items to the left */
+  justify-content: flex-start;
   width: auto;
   margin-left: 20px;
-  flex-direction: column; /* Stack icons and details vertically */
+  flex-direction: column;
 }
 
 .social-links > div {
   display: flex;
   align-items: center;
-  margin-bottom: 10px; /* Space between items */
+  margin-bottom: 10px;
 }
 
 .social-links svg {
@@ -95,35 +103,43 @@ img {
 
 @media (max-width: 992px) {
   .hero-container {
-    width: 70%; /* Adjust for tablet size */
+    width: 70%;
   }
 
   .navbar-nav .nav-link {
-    font-size: 20px; /* Adjust font size for tablet size */
+    font-size: 20px;
   }
 }
 
 @media (max-width: 768px) {
+  body {
+    background-color: black;
+  }
+  .navbar {
+    background-color: black !important;
+    flex-direction: column;
+    padding: 15px;
+  }
   .hero-container {
-    flex-direction: column;  /* Stack elements vertically on small screens */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90%; /* Adjust for mobile size */
+    width: 80%;
   }
 
   .hero-text {
     text-align: center;
     margin-right: 0;
-    margin-bottom: 20px; /* Add space between elements */
+    margin-bottom: 20px;
   }
 
   .vertical-line {
-    display: none;  /* Hide vertical line on small screens */
+    display: none;
   }
 
   .social-links {
     flex-direction: column;
-    align-items: center;  /* Center items on small screens */
+    align-items: center;
     margin-left: 0;
   }
 
@@ -132,6 +148,6 @@ img {
   }
 
   .navbar-nav .nav-link {
-    font-size: 18px; /* Adjust font size for mobile size */
+    font-size: 18px;
   }
 }

@@ -1,5 +1,22 @@
 /* App.css */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: black; /* Set the overall background color */
+  color: white; /* Ensure text contrasts with the black background */
+  font-family: Arial, sans-serif; /* Set a clean, modern font */
+}
 .section {
   padding-top: 70px; /* Adjust this value based on the height of your navbar */
   margin-top: -70px; /* Negative margin to offset the padding */
+}
+@media (max-width: 768px) {
+  .section {
+    background-color: black;
+    padding: px; /* Adjust padding for smaller screens */
+    text-align: center; /* Center-align text for better readability */
+  }
+  body{
+    background-color: black;
+  }
 }

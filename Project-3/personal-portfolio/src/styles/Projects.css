@@ -1,105 +1,116 @@
-/* Project.css */
 .project-card {
-    background-color: #212529;
-    color: white;
-    border-radius: 15px;
-    padding: 15px; /* Reduced padding */
-    box-shadow: 0 5px 8px rgba(235, 231, 213, 0.6);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    margin: 10px;
-    flex: 1 1 200px; /* Fixed width */
-    height: 500px; /* Fixed height */
-    text-align: center; /* Center align content */
-  }
-  
-  .project-card:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 12px 20px rgba(190, 174, 101, 0.8);
-  }
-  
-  .project-image {
-    max-width: 90%;
-    max-height: 75%; /* Reduced image size */
+  background-color: #212529;
+  color: white;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 5px 8px rgba(235, 231, 213, 0.6);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin: 10px; /* Default margin */
+  flex: 1 1 200px; /* Default behavior for larger screens */
+  height: 500px;
+  text-align: center;
+}
+
+.project-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 20px rgba(190, 174, 101, 0.8);
+}
+
+.project-image {
+  max-width: 90%;
+  max-height: 75%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.project-title {
+  font-family: cursive;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.project-description {
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.project-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project-link:hover {
+  color: #ffd000;
+  text-decoration: underline;
+}
+
+.projects-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.projects-title {
+  color: white;
+  font-family: cursive;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+.projects-title:hover {
+  transform: scale(1.05);
+  color: hsl(49, 100%, 50%);
+}
+
+.project-row {
+  display: flex;
+  justify-content: center; /* Center horizontally on larger screens */
+  flex-wrap: wrap; /* Allow wrapping of cards */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .project-card {
+    flex: 1 1 calc(50% - 20px); /* Display two cards per row for tablets */
     height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px; /* Reduced margin */
+    padding: 10px; /* Adjust padding for tablets */
   }
-  
+
   .project-title {
-    font-family: cursive;
-    font-size: 18px; /* Reduced font size */
-    margin-bottom: 8px; /* Reduced margin */
+    font-size: 16px; /* Adjust font size for tablets */
   }
-  
+
   .project-description {
-    font-family: 'Lato', sans-serif;
-    margin-bottom: 8px; /* Reduced margin */
-    font-size: 14px; /* Reduced font size */
+    font-size: 12px; /* Adjust font size for tablets */
   }
-  
-  .project-link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .project-link:hover {
-    color: #ffd000;
-    text-decoration: underline;
-  }
-  
-  .projects-section {
-    text-align: center;
-    padding: 50px 20px;
-  }
-  
-  .projects-title {
-    color: white;
-    font-family: cursive;
-    font-size: 35px;
-    margin-bottom: 20px;
-  }
-  
+}
+
+@media (max-width: 480px) {
   .project-row {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center the cards horizontally */
+    gap: 20px; /* Add consistent spacing between cards */
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .project-card {
-      flex: 1 1 calc(50% - 20px); /* Adjust width for tablets */
-      height: auto; /* Adjust height for tablets */
-      padding: 10px; /* Adjust padding for tablets */
-    }
-  
-    .project-title {
-      font-size: 16px; /* Adjust font size for tablets */
-    }
-  
-    .project-description {
-      font-size: 12px; /* Adjust font size for tablets */
-    }
+
+  .project-card {
+    flex: 1 1 100%; /* Make each card occupy the full width */
+    margin: 20px 0; /* Add vertical spacing between cards */
+    padding: 15px; /* Keep consistent padding */
+    height: auto; /* Adjust height to fit content */
   }
-  
-  @media (max-width: 480px) {
-    .project-card {
-      flex: 1 1 calc(100% - 20px); /* Full width for mobile devices */
-      height: auto; /* Adjust height for mobile devices */
-      padding: 10px; /* Adjust padding for mobile devices */
-    }
-  
-    .project-title {
-      font-size: 14px; /* Further adjust font size for mobile devices */
-    }
-  
-    .project-description {
-      font-size: 12px; /* Further adjust font size for mobile devices */
-    }
-  
-    .project-image {
-      max-width: 100%; /* Adjust image size for mobile devices */
-    }
+
+  .project-title {
+    font-size: 14px; /* Smaller font for mobile screens */
   }
-  
+
+  .project-description {
+    font-size: 12px; /* Adjust font size */
+  }
+
+  .project-image {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto;
+  }
+}
